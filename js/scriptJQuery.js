@@ -23,17 +23,18 @@ $(document).ready(() => {
     function addTask(text) {
         const li = $('<li>').addClass('list-group-item w-100 d-flex align-items-center');
         li.html(`
-        <div class="d-flex align-items-center w-100">
+        <div class="d-flex align-items-center justify-content-between w-100">
             <label class="d-flex align-items-center me-3" style="cursor: pointer;">
                 <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
-            </label>
+           
             <span class="flex-grow-1 text-break">${text}</span>
+             </label>
             <button class="btn btn-sm btn-danger btn-delete">Excluir</button>
-    </div>
+        </div>
          `);
 
         li.find('.form-check-input').on('click', () => {
-            li.find('span').toggleClass('text-decoration-line-through')
+            li.find('div').toggleClass('text-decoration-line-through')
         });
 
         li.find('.btn-delete').on('click', () => {
@@ -44,7 +45,7 @@ $(document).ready(() => {
 
     };
 
-    emptyTasks.on('click', ()=>{
+    emptyTasks.on('click', () => {
         taskList.empty();
     })
 })
